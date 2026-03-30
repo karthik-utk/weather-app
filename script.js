@@ -20,21 +20,23 @@ const fakeWeatherObj = [{
 }]
 
 function getWeather() {
-    let found = 0;
-
+    let result = document.getElementById("weatherResult");
+    let found = false;
     let city = document.getElementById("cityInput").value;
     fakeWeatherObj.forEach(we => {
         if (city === we.cityName) {
-            console.log(we.cityName);
-            console.log(we.Temparture);
-            console.log(we.Humidity);
-            console.log(we.weatherCondition);
-            console.log(we.windSpeed);
-            found = 1;
+            found = true;
+            result.innerHTML = `
+                <p>City: ${we.cityName}</p>
+                <p>Temperature: ${we.Temparture}</p>
+                <p>Humidity: ${we.Humidity}</p>
+                <p>Condition: ${we.weatherCondition}</p>
+                <p>Wind Speed: ${we.windSpeed}</p>
+            `;
         }
     })
 
-    if (found === 0) {
-        console.log('City not found')
+    if (!found) {
+       result.innerHTML = '<p>City not found</p>';
     }
 }
