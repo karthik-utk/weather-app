@@ -1,24 +1,35 @@
 function getWeather() {
     let city = document.getElementById("cityInput").value;
     let result = document.getElementById("weatherResult");
-    let apiKey = "b5f779cab944b9cc9d68f9f3c17905c4";
+    let apiKey = config.apiKey;
+
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
         .then(response => response.json())
         .then(data => {
             if (data.cod === 200) {
+                result.style.display = "block";
                 result.innerHTML = `
-                    <p>City: ${data.name}</p>
-                    <p>Temperature: ${data.main.temp} °C</p>
-                    <p>Humidity: ${data.main.humidity} %</p>
-                    <p>Condition: ${data.weather[0].description}</p>
-                    <p>Wind Speed: ${data.wind.speed} km/h</p>
+                    <div class="city-name">${data.name}, ${data.sys.country}</div>
+                    <div class="condition">${data.weather[0].description}</div>
+                    <div class="temp">${Math.round(data.main.temp)}°C</div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <div class="detail-label">Humidity</div>
+                            <div class="detail-value">${data.main.humidity}%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Wind</div>
+                            <div class="detail-value">${data.wind.speed} km/h</div>
+                        </div>
+                    </div>
                 `;
             } else {
-                result.innerHTML = '<p>City not found</p>';
+                result.style.display = "block";
+                result.innerHTML = '<p class="error">City not found</p>';
             }
         })
         .catch(error => {
-            result.innerHTML = '<p>Something went wrong</p>';
-            console.log(error);
+            result.style.display = "block";
+            result.innerHTML = '<p class="error">Something went wrong</p>';
         });
 }

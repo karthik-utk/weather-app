@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>
-        Weather App
-    </title>
-
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <h1>Weather App</h1>
-    <input type="text" id="cityInput" placeholder="Enter your city name">
-    <button onclick="getWeather()"> Get weather </button>
+    <p class="subtitle">Enter a city to get live weather</p>
+
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="getWeather()">Search</button>
+    </div>
 
     <div id="weatherResult"></div>
+
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

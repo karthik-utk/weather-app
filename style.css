@@ -1,36 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    text-align: center;
-    margin-top: 100px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 h1 {
-    margin-bottom: 20px;
+    color: white;
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
 }
 
-input {
-    padding: 10px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#cityInput {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 15px;
+    width: 220px;
+    outline: none;
+}
+
+#cityInput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 button {
-    padding: 10px 15px;
-    margin-left: 10px;
+    padding: 12px 22px;
+    border-radius: 30px;
     border: none;
-    background-color: #007BFF;
+    background: #4361ee;
     color: white;
-    border-radius: 5px;
+    font-size: 15px;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: #3451d1;
 }
 
 #weatherResult {
-    margin-top: 30px;
-    font-size: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px 40px;
+    text-align: center;
+    width: 300px;
+    display: none;
+}
+
+.city-name {
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.condition {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.temp {
+    color: white;
+    font-size: 56px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.detail-item {
+    text-align: center;
+}
+
+.detail-label {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.detail-value {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.error {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
 }
