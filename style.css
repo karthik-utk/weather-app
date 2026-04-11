@@ -72,6 +72,8 @@ button:hover {
     text-align: center;
     width: 300px;
     display: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 .city-name {
